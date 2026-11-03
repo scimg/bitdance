@@ -1,0 +1,35 @@
+   ___    __  ___ ___    _   ___   _____ _____ ___   __  __
+  / _ |  /  |/  // _ \  (_) / _ \ / ___// ___// _ \ / / / /
+ / __ | / /|_/ // // / _   / // // /__ / (_ // ___// /_/ /
+/_/ |_|/_/  /_//____/ (_) /____/ \___/ \___//_/    \____/
+
+smci355-ccs-aus-m02-29.cs-aus.dcgpu is protected by Conductor SUT Authentication - 20240214.01-g1.
+
+Reminder: An SSH key is required to access this system. 
+To manage your Conductor SSH keys please visit https://conductor.amd.com/user/dashboard/key-management
+
+You will be denied access to this system if:
+  • You did not provide a valid SSH key
+  • You do not have an active reservation in Conductor
+  • You are not in the required security groups (ex: mi300_doc.4erminus)
+
+For other help resources please visit https://conductor.amd.com/docs
+
+Checking authorization now...
+HIP builds OK (pre/pre4/apx/dec/m256/c256)
+== HDR label M N K W4A4(fp4) W4A6 W6A6(fp6) tc_flydsl(ref) tc_HIP hip_DISPATCH(win) ==
+==================== A) LLM (Qwen) ====================
+ROW	LLM square	4096	4096	8192	3260.1	2812.3	1791.9	1312.5	2110.05	2110.05(HIP)
+ROW	LLM gate_up pref	4096	19456	2560	3014.6	2089.5	1747.2	1554.1	1727.94	1727.94(HIP)
+ROW	LLM DOWN decode	128	2560	9728	344.0	239.0	116.3	307.8	323.38	323.38(HIP)
+ROW	LLM GATE decode	128	19456	2560	1589.3	1014.8	682.4	1517.2	571.22	571.22(HIP)
+ROW	LLM QKV decode	128	4096	4096	473.9	344.1	202.0	427.8	279.77	279.77(HIP)
+==================== B) FLUX.1-schnell (1024px) ====================
+ROW	FLUX dbl imgQKV	4096	9216	3072	2775.4	2097.2	1646.5	1499.9	1512.77	1512.77(HIP)
+ROW	FLUX dbl imgPROJ	4096	3072	3072	2733.5	1952.6	1565.2	1325.9	1466.58	1466.58(HIP)
+ROW	FLUX dbl FC1	4096	12288	3072	3064.6	2281.8	1760.7	1686.4	1890.98	1890.98(HIP)
+ROW	FLUX dbl FC2	4096	3072	12288	3017.7	2239.1	1822.2	1525.9	1886.45	1886.45(HIP)
+ROW	FLUX sgl LIN1	4352	21504	3072	3092.4	2356.3	1746.6	1681.2	1779.38	1779.38(HIP)
+ROW	FLUX sgl LIN2	4352	3072	15360	3121.5	2239.1	1708.8	1202.2	1946.99	1946.99(HIP)
+ROW	FLUX txt FC1 M256	256	12288	3072	2032.3	1258.3	858.5	1780.2	698.86	698.86(HIP)
+=== END rc=0 ===

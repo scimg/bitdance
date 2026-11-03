@@ -1,0 +1,23 @@
+   ___    __  ___ ___    _   ___   _____ _____ ___   __  __
+  / _ |  /  |/  // _ \  (_) / _ \ / ___// ___// _ \ / / / /
+ / __ | / /|_/ // // / _   / // // /__ / (_ // ___// /_/ /
+/_/ |_|/_/  /_//____/ (_) /____/ \___/ \___//_/    \____/
+
+smci355-ccs-aus-m02-29.cs-aus.dcgpu is protected by Conductor SUT Authentication - 20240214.01-g1.
+
+Reminder: An SSH key is required to access this system. 
+To manage your Conductor SSH keys please visit https://conductor.amd.com/user/dashboard/key-management
+
+You will be denied access to this system if:
+  • You did not provide a valid SSH key
+  • You do not have an active reservation in Conductor
+  • You are not in the required security groups (ex: mi300_doc.4erminus)
+
+For other help resources please visit https://conductor.amd.com/docs
+
+Checking authorization now...
+shape W6A6                     1024_16_8_1   1024_32_8_1   1024_64_8_1    512_16_8_1    512_32_8_1    512_64_8_1    256_16_4_1    256_32_4_1    256_64_4_1
+FC2 1828                            800.21       1126.81       1772.48        815.35       1332.26       1358.55        811.05       1308.98       1620.75
+imgPROJ 1560                        679.24        954.35       1405.45        706.42       1075.48       1087.22        712.14       1024.12       1251.85
+imgQKV 1662                         726.87       1126.57       1461.62        771.78       1240.19       1325.05        796.18       1221.65       1458.92
+LIN1 1747                           609.87       1019.37       1510.08        756.51       1221.89       1357.48        789.96       1249.99       1583.41

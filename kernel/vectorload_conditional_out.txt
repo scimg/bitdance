@@ -1,0 +1,43 @@
+   ___    __  ___ ___    _   ___   _____ _____ ___   __  __
+  / _ |  /  |/  // _ \  (_) / _ \ / ___// ___// _ \ / / / /
+ / __ | / /|_/ // // / _   / // // /__ / (_ // ___// /_/ /
+/_/ |_|/_/  /_//____/ (_) /____/ \___/ \___//_/    \____/
+
+smci355-ccs-aus-m02-29.cs-aus.dcgpu is protected by Conductor SUT Authentication - 20240214.01-g1.
+
+Reminder: An SSH key is required to access this system. 
+To manage your Conductor SSH keys please visit https://conductor.amd.com/user/dashboard/key-management
+
+You will be denied access to this system if:
+  • You did not provide a valid SSH key
+  • You do not have an active reservation in Conductor
+  • You are not in the required security groups (ex: mi300_doc.4erminus)
+
+For other help resources please visit https://conductor.amd.com/docs
+
+Checking authorization now...
+== build patched v31 ==
+build ok
+== correctness smoke ==
+v31 tile=128x32 w4x1 M=128(pad128) N=256 K=256 S=1 verify
+verify: maxabs=0 nbad=0/32768
+RESULT: PASS
+== patched HIP TFLOPS ==
+shape                  patched_HIP
+square                 1980.39@1
+gate_up                1645.35@1
+DOWN_decode            323.68@4
+QKV_decode             274.28@4
+M256_FC1               697.14@1
+correctness
+v31 tile=1024x64 w8x1 M=128(pad1024) N=256 K=256 S=1 verify
+verify: maxabs=0 nbad=0/32768
+RESULT: PASS
+shape hip_w6_1024 hip_w6_256 flydsl_w6
+square 2096.20 1911.11 1890
+gate_up 1665.82 1638.39 1765
+imgQKV 1505.08 1669.20 1662
+imgPROJ 1447.41 1477.46 1560
+FC2 1834.13 1916.13 1828
+LIN1 1473.27 1760.32 1747
+LIN2 1896.41 1716.94 1688

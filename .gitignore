@@ -1,0 +1,33 @@
+# local agent/editor state
+.codex/
+.cursor/
+__pycache__/
+*.pyc
+
+# generated packages / sync bundles
+*.tar
+*.tgz
+_sync.tar
+_s*.tgz
+
+# temporary notes and scratch outputs
+_*.txt
+_*.out
+_psgcmp/
+_guard/
+
+# generated media / slide previews
+*.pptx
+*.png
+preview*/
+deck_png/
+deck_archive/
+plots/
+artifacts/
+
+# remote/generated analysis outputs not needed for minimal repro
+remote/out/
+remote/plots/
+
+# profiler / local tool output
+.rocprofv3/
