@@ -1,0 +1,100 @@
+Block Vector Quantization Error
+================================
+
+seed:       20260707
+elements:   131072
+block size: 32
+
+implementation: NumPy vectorized
+data range: [0, 500]
+Scale selection: smallest representable scale covering block amax.
+Primary metric: relative L2 error = ||q - x||_2 / ||x||_2.
+
+Tensor: normal_250_80_clip_0_500
+--------------------------------
+method                             rel_l2     rel_linf    max_abs_err
+Direct MXFP6                       2.707%       3.200%        15.9997
+Direct MXFP4                      10.889%      12.800%        63.9994
+Direct NVFP4 b16                  10.504%      17.506%        87.5321
+Direct NVFP4                      10.517%      17.557%        87.7852
+NVFP4 -> MXFP6                    10.267%      17.506%        87.5321
+Direct FP4SE4                     10.471%      16.761%        83.8047
+FP4SE4 -> MXFP6                   11.400%      19.922%        99.6118
+Direct FP4SE5                     10.517%      17.557%        87.7852
+FP4SE5 -> MXFP6                   10.267%      17.506%        87.5321
+Direct FP4SE6                     10.616%      19.192%        95.9577
+FP4SE6 -> MXFP6                   10.643%      19.192%        95.9577
+
+Tensor: uniform_0_500
+---------------------
+method                             rel_l2     rel_linf    max_abs_err
+Direct MXFP6                       2.507%       3.200%        15.9994
+Direct MXFP4                      10.227%      12.800%        63.9983
+Direct NVFP4 b16                  11.106%      17.599%        87.9938
+Direct NVFP4                      11.509%      17.599%        87.9938
+NVFP4 -> MXFP6                    10.809%      17.599%        87.9938
+Direct FP4SE4                     10.885%      16.800%        83.9999
+FP4SE4 -> MXFP6                   12.382%      20.000%        99.9999
+Direct FP4SE5                     11.509%      17.599%        87.9938
+FP4SE5 -> MXFP6                   10.809%      17.599%        87.9938
+Direct FP4SE6                     12.167%      19.200%        95.9992
+FP4SE6 -> MXFP6                   12.182%      19.200%        95.9992
+
+Tensor: exponential_80_clip_0_500
+---------------------------------
+method                             rel_l2     rel_linf    max_abs_err
+Direct MXFP6                       3.053%       3.200%        15.9991
+Direct MXFP4                      13.045%      12.799%        63.9953
+Direct NVFP4 b16                  10.010%      15.584%        77.9224
+Direct NVFP4                      10.894%      17.322%        86.6081
+NVFP4 -> MXFP6                    10.805%      17.322%        86.6081
+Direct FP4SE4                     10.431%      16.665%        83.3253
+FP4SE4 -> MXFP6                   11.118%      19.865%        99.3253
+Direct FP4SE5                     10.894%      17.322%        86.6081
+FP4SE5 -> MXFP6                   10.805%      17.322%        86.6081
+Direct FP4SE6                     12.361%      19.166%        95.8301
+FP4SE6 -> MXFP6                   12.310%      19.166%        95.8301
+
+Tensor: outlier_mix_clip_0_500
+------------------------------
+method                             rel_l2     rel_linf    max_abs_err
+Direct MXFP6                       2.828%       3.197%        15.9847
+Direct MXFP4                      14.163%      12.794%          63.97
+Direct NVFP4 b16                  10.034%      17.594%        87.9691
+Direct NVFP4                      10.900%      17.594%        87.9691
+NVFP4 -> MXFP6                    11.186%      17.594%        87.9691
+Direct FP4SE4                     10.150%      16.792%        83.9577
+FP4SE4 -> MXFP6                   11.028%      19.992%        99.9577
+Direct FP4SE5                     10.900%      17.594%        87.9691
+FP4SE5 -> MXFP6                   11.186%      17.594%        87.9691
+Direct FP4SE6                     12.696%      19.185%        95.9238
+FP4SE6 -> MXFP6                   12.999%      19.185%        95.9238
+
+Aggregate mean rel-L2 (%) across tensors
+----------------------------------------
+Direct MXFP6                    2.77
+Direct MXFP4                   12.08
+Direct NVFP4 b16               10.41
+Direct NVFP4                   10.96
+NVFP4 -> MXFP6                 10.77
+Direct FP4SE4                  10.48
+FP4SE4 -> MXFP6                11.48
+Direct FP4SE5                  10.96
+FP4SE5 -> MXFP6                10.77
+Direct FP4SE6                  11.96
+FP4SE6 -> MXFP6                12.03
+
+Per-block rel-L2 distribution (%), block = 32, pooled over tensors
+------------------------------------------------------------------
+method                            p10      p50      p90      p99      max     mean
+Direct MXFP6                     2.22     2.66     3.31     4.21     5.07     2.72
+Direct MXFP4                     9.30    11.07    15.57    18.98    22.82    11.73
+Direct NVFP4 b16                 8.59    10.38    12.02    13.24    15.85    10.34
+Direct NVFP4                     9.02    10.80    12.58    13.99    16.41    10.80
+NVFP4 -> MXFP6                   8.92    10.56    12.41    14.15    16.50    10.63
+Direct FP4SE4                    8.72    10.39    12.05    13.33    15.32    10.39
+FP4SE4 -> MXFP6                  9.08    11.24    13.73    15.34    17.64    11.32
+Direct FP4SE5                    9.02    10.80    12.58    13.99    16.41    10.80
+FP4SE5 -> MXFP6                  8.92    10.56    12.41    14.15    16.50    10.63
+Direct FP4SE6                    9.39    11.38    14.30    17.04    19.97    11.64
+FP4SE6 -> MXFP6                  9.39    11.41    14.45    17.47    19.97    11.69
